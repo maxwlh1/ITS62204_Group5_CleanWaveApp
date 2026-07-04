@@ -27,7 +27,7 @@ public class LoginActivity extends AppCompatActivity {
 
             if (email.equals("user") && password.equals("123")) {
                 Toast.makeText(this, "Login Successful!", Toast.LENGTH_SHORT).show();
-                // Send user to the Main Dashboard
+                // Send user to Main Dashboard
                 Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                 startActivity(intent);
                 finish(); // Prevents user from going back to login screen using back button
