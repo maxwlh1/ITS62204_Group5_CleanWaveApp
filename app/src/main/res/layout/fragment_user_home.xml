@@ -11,6 +11,7 @@
         android:orientation="vertical"
         android:padding="16dp">
 
+        <!-- Top Header -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -27,12 +28,16 @@
                 android:textStyle="bold"
                 android:textColor="#000000"/>
 
+            <!-- ADDED THE ID RIGHT HERE -->
             <TextView
+                android:id="@+id/btnUserProfile"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="(User)"
                 android:layout_marginEnd="16dp"
-                android:textSize="14sp"/>
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:textColor="#0066CC"/>
 
             <TextView
                 android:id="@+id/btnNotification"
@@ -42,6 +47,7 @@
                 android:textSize="20sp"/>
         </LinearLayout>
 
+        <!-- 4 Grid Buttons -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -101,6 +107,7 @@
                 app:strokeColor="#CCCCCC"/>
         </LinearLayout>
 
+        <!-- Event Section -->
         <com.google.android.material.card.MaterialCardView
             android:layout_width="match_parent"
             android:layout_height="140dp"
@@ -141,6 +148,7 @@
             android:textColor="#0066CC"
             android:textStyle="bold"/>
 
+        <!-- Donation Section -->
         <com.google.android.material.card.MaterialCardView
             android:layout_width="match_parent"
             android:layout_height="140dp"

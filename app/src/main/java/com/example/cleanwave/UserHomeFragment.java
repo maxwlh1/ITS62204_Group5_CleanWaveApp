@@ -33,6 +33,19 @@ public class UserHomeFragment extends Fragment {
         MaterialButton btnInfo = view.findViewById(R.id.btnInfo);
         TextView btnNotification = view.findViewById(R.id.btnNotification);
 
+// ADD THIS LINE HERE:
+        TextView btnUserProfile = view.findViewById(R.id.btnUserProfile);
+
+        if (btnUserProfile != null) {
+            btnUserProfile.setOnClickListener(v -> {
+                // Navigate to the UserProfileFragment
+                requireActivity().getSupportFragmentManager().beginTransaction()
+                        .replace(R.id.fragment_container, new UserProfileFragment())
+                        .addToBackStack(null) // This allows the "Back" button to work
+                        .commit();
+            });
+        }
+
         // Bulletproof click listeners using v.getContext() and null checks
         if (btnReport != null) {
             btnReport.setOnClickListener(v ->
