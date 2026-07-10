@@ -31,27 +31,37 @@ public class OrgHomeFragment extends Fragment {
         MaterialButton btnShareInfo = view.findViewById(R.id.btnShareInfo);
         MaterialButton btnOrgNotification = view.findViewById(R.id.btnOrgNotification);
 
-        // Note: The "Org" label is now static UI, so we don't map it or make it clickable!
-
-        // Interactivity for the grid buttons
+        // 1. Route for Publish Event
         if (btnPublishEvent != null) {
-            btnPublishEvent.setOnClickListener(v ->
-                    Toast.makeText(v.getContext(), "Navigating to Publish Event...", Toast.LENGTH_SHORT).show()
-            );
+            btnPublishEvent.setOnClickListener(v -> {
+                requireActivity().getSupportFragmentManager().beginTransaction()
+                        .replace(R.id.fragment_container, new PublishEventFragment())
+                        .addToBackStack(null)
+                        .commit();
+            });
         }
 
+        // 2. Route for Launch Donation
         if (btnLaunchDonation != null) {
-            btnLaunchDonation.setOnClickListener(v ->
-                    Toast.makeText(v.getContext(), "Navigating to Launch Donation...", Toast.LENGTH_SHORT).show()
-            );
+            btnLaunchDonation.setOnClickListener(v -> {
+                requireActivity().getSupportFragmentManager().beginTransaction()
+                        .replace(R.id.fragment_container, new LaunchDonationFragment())
+                        .addToBackStack(null)
+                        .commit();
+            });
         }
 
+        // 3. Route for Share Info (This fixes your issue!)
         if (btnShareInfo != null) {
-            btnShareInfo.setOnClickListener(v ->
-                    Toast.makeText(v.getContext(), "Navigating to Share Info...", Toast.LENGTH_SHORT).show()
-            );
+            btnShareInfo.setOnClickListener(v -> {
+                requireActivity().getSupportFragmentManager().beginTransaction()
+                        .replace(R.id.fragment_container, new ShareInfoFragment())
+                        .addToBackStack(null)
+                        .commit();
+            });
         }
 
+        // 4. Placeholder for Notifications
         if (btnOrgNotification != null) {
             btnOrgNotification.setOnClickListener(v ->
                     Toast.makeText(v.getContext(), "Checking NGO Notifications...", Toast.LENGTH_SHORT).show()
