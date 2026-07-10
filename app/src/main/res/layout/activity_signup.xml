@@ -21,7 +21,9 @@
             android:gravity="center"
             android:layout_marginBottom="24dp"/>
 
+        <!-- This is the exact ID your Java file is looking for! -->
         <com.google.android.material.button.MaterialButtonToggleGroup
+            android:id="@+id/toggleRoleSignup"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="24dp"

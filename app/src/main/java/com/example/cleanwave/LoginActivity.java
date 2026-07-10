@@ -6,6 +6,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import com.google.android.material.button.MaterialButton;
+import com.google.android.material.button.MaterialButtonToggleGroup;
 import com.google.android.material.textfield.TextInputEditText;
 
 public class LoginActivity extends AppCompatActivity {
@@ -19,20 +20,40 @@ public class LoginActivity extends AppCompatActivity {
         TextInputEditText etPassword = findViewById(R.id.etPassword);
         MaterialButton btnDone = findViewById(R.id.btnDone);
         TextView tvSignUp = findViewById(R.id.tvSignUp);
+        MaterialButtonToggleGroup toggleRoleLogin = findViewById(R.id.toggleRoleLogin);
 
-        // Hardcoded Login Logic
+        // Hardcoded Role-Based Login Logic
         btnDone.setOnClickListener(v -> {
             String email = etEmail.getText().toString().trim();
             String password = etPassword.getText().toString().trim();
 
-            if (email.equals("user") && password.equals("123")) {
-                Toast.makeText(this, "Login Successful!", Toast.LENGTH_SHORT).show();
-                // Send user to Main Dashboard
-                Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-                startActivity(intent);
-                finish(); // Prevents user from going back to login screen using back button
+            // Check which role is selected
+            int selectedId = toggleRoleLogin.getCheckedButtonId();
+            boolean isUserSelected = (selectedId == R.id.btnToggleUserLogin);
+
+            if (isUserSelected) {
+                // Validate Normal User
+                if (email.equals("user") && password.equals("123")) {
+                    Toast.makeText(this, "Logged in as User!", Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                    startActivity(intent);
+                    finish();
+                } else {
+                    Toast.makeText(this, "User Login Failed. Try user / 123", Toast.LENGTH_LONG).show();
+                }
             } else {
-                Toast.makeText(this, "Invalid Credentials. Try user / 123", Toast.LENGTH_LONG).show();
+                // Validate Organization
+                if (email.equals("org") && password.equals("123")) {
+                    Toast.makeText(this, "Logged in as Organization!", Toast.LENGTH_SHORT).show();
+
+                    // Note: Right now this goes to the same MainActivity.
+                    // To get full marks later, you can route this to an "OrgMainActivity.class" instead!
+                    Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                    startActivity(intent);
+                    finish();
+                } else {
+                    Toast.makeText(this, "Org Login Failed. Try org / 123", Toast.LENGTH_LONG).show();
+                }
             }
         });
 
