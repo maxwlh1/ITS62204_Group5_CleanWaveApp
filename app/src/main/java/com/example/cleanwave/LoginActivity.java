@@ -36,6 +36,7 @@ public class LoginActivity extends AppCompatActivity {
                 if (email.equals("user") && password.equals("123")) {
                     Toast.makeText(this, "Logged in as User!", Toast.LENGTH_SHORT).show();
                     Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                    intent.putExtra("ROLE", "User"); // PASSING THE ROLE
                     startActivity(intent);
                     finish();
                 } else {
@@ -45,10 +46,8 @@ public class LoginActivity extends AppCompatActivity {
                 // Validate Organization
                 if (email.equals("org") && password.equals("123")) {
                     Toast.makeText(this, "Logged in as Organization!", Toast.LENGTH_SHORT).show();
-
-                    // Note: Right now this goes to the same MainActivity.
-                    // To get full marks later, you can route this to an "OrgMainActivity.class" instead!
                     Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                    intent.putExtra("ROLE", "Organization"); // PASSING THE ROLE
                     startActivity(intent);
                     finish();
                 } else {

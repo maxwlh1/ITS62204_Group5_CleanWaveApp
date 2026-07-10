@@ -26,14 +26,27 @@ public class UserHomeFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        // Map the UI elements
+        // Map all UI elements
         MaterialButton btnReport = view.findViewById(R.id.btnReport);
         MaterialButton btnVolunteer = view.findViewById(R.id.btnVolunteer);
         MaterialButton btnDonation = view.findViewById(R.id.btnDonation);
         MaterialButton btnInfo = view.findViewById(R.id.btnInfo);
         TextView btnNotification = view.findViewById(R.id.btnNotification);
 
-        // Bulletproof click listeners using v.getContext() and null checks
+        // This is the newly upgraded Profile button!
+        MaterialButton btnUserProfile = view.findViewById(R.id.btnUserProfile);
+
+        if (btnUserProfile != null) {
+            btnUserProfile.setOnClickListener(v -> {
+                // Navigate to the UserProfileFragment
+                requireActivity().getSupportFragmentManager().beginTransaction()
+                        .replace(R.id.fragment_container, new UserProfileFragment())
+                        .addToBackStack(null) // This allows the "Back" arrow to work
+                        .commit();
+            });
+        }
+
+        // Basic interactivity for the other buttons
         if (btnReport != null) {
             btnReport.setOnClickListener(v ->
                     Toast.makeText(v.getContext(), "Navigating to Report Issue...", Toast.LENGTH_SHORT).show()

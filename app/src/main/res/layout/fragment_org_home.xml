@@ -11,7 +11,7 @@
         android:orientation="vertical"
         android:padding="16dp">
 
-        <!-- Top Header with Upgraded Profile Button -->
+        <!-- Top Header -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -28,24 +28,18 @@
                 android:textStyle="bold"
                 android:textColor="#000000"/>
 
-            <!-- UPGRADED BUTTON: Massive touch target and better UI -->
+            <!-- UPGRADED ORG BADGE (Not Clickable) -->
             <com.google.android.material.button.MaterialButton
-                android:id="@+id/btnUserProfile"
                 style="@style/Widget.MaterialComponents.Button.OutlinedButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="12dp"
-                android:text="👤 Profile"
+                android:text="🏢 Org"
                 android:textColor="#000000"
                 app:cornerRadius="20dp"
-                app:strokeColor="#CCCCCC" />
-
-            <TextView
-                android:id="@+id/btnNotification"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="🔔"
-                android:textSize="24sp"/>
+                app:strokeColor="#CCCCCC"
+                android:clickable="false"
+                android:focusable="false"
+                app:rippleColor="@android:color/transparent" />
         </LinearLayout>
 
         <!-- 4 Grid Buttons -->
@@ -56,24 +50,24 @@
             android:baselineAligned="false">
 
             <com.google.android.material.button.MaterialButton
-                android:id="@+id/btnReport"
+                android:id="@+id/btnPublishEvent"
                 style="@style/Widget.MaterialComponents.Button.OutlinedButton"
                 android:layout_width="0dp"
                 android:layout_height="80dp"
                 android:layout_weight="1"
                 android:layout_marginEnd="8dp"
-                android:text="Report Water\nIssue"
+                android:text="Publish\nEvent"
                 android:textColor="#000000"
                 app:strokeColor="#CCCCCC"/>
 
             <com.google.android.material.button.MaterialButton
-                android:id="@+id/btnVolunteer"
+                android:id="@+id/btnLaunchDonation"
                 style="@style/Widget.MaterialComponents.Button.OutlinedButton"
                 android:layout_width="0dp"
                 android:layout_height="80dp"
                 android:layout_weight="1"
                 android:layout_marginStart="8dp"
-                android:text="Volunteer"
+                android:text="Launch\nDonation"
                 android:textColor="#000000"
                 app:strokeColor="#CCCCCC"/>
         </LinearLayout>
@@ -86,26 +80,57 @@
             android:baselineAligned="false">
 
             <com.google.android.material.button.MaterialButton
-                android:id="@+id/btnDonation"
+                android:id="@+id/btnShareInfo"
                 style="@style/Widget.MaterialComponents.Button.OutlinedButton"
                 android:layout_width="0dp"
                 android:layout_height="80dp"
                 android:layout_weight="1"
                 android:layout_marginEnd="8dp"
-                android:text="Donation"
+                android:text="Share Info"
                 android:textColor="#000000"
                 app:strokeColor="#CCCCCC"/>
 
             <com.google.android.material.button.MaterialButton
-                android:id="@+id/btnInfo"
+                android:id="@+id/btnOrgNotification"
                 style="@style/Widget.MaterialComponents.Button.OutlinedButton"
                 android:layout_width="0dp"
                 android:layout_height="80dp"
                 android:layout_weight="1"
                 android:layout_marginStart="8dp"
-                android:text="Info"
+                android:text="Notification"
                 android:textColor="#000000"
                 app:strokeColor="#CCCCCC"/>
+        </LinearLayout>
+
+        <!-- Filter and Search Row -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="16dp"
+            android:gravity="center_vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Event / Donation ▼"
+                android:padding="8dp"
+                android:background="@drawable/ic_launcher_background"
+                android:backgroundTint="#EAEAEA"
+                android:textColor="#000000"
+                android:textSize="12sp"
+                android:layout_marginEnd="12dp"/>
+
+            <EditText
+                android:layout_width="0dp"
+                android:layout_height="36dp"
+                android:layout_weight="1"
+                android:background="@drawable/ic_launcher_background"
+                android:backgroundTint="#FFFFFF"
+                android:hint="🔍 Search"
+                android:paddingStart="8dp"
+                android:textSize="14sp"
+                android:inputType="text"/>
         </LinearLayout>
 
         <!-- Event Section -->
@@ -139,21 +164,12 @@
             </LinearLayout>
         </com.google.android.material.card.MaterialCardView>
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="more event"
-            android:gravity="center"
-            android:layout_marginTop="8dp"
-            android:linksClickable="true"
-            android:textColor="#0066CC"
-            android:textStyle="bold"/>
-
         <!-- Donation Section -->
         <com.google.android.material.card.MaterialCardView
             android:layout_width="match_parent"
             android:layout_height="140dp"
             android:layout_marginTop="24dp"
+            android:layout_marginBottom="32dp"
             app:cardCornerRadius="12dp"
             app:strokeWidth="1dp"
             app:strokeColor="#DDDDDD">
@@ -179,17 +195,6 @@
                     android:textStyle="bold"/>
             </LinearLayout>
         </com.google.android.material.card.MaterialCardView>
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="more donation program"
-            android:gravity="center"
-            android:layout_marginTop="8dp"
-            android:layout_marginBottom="32dp"
-            android:linksClickable="true"
-            android:textColor="#0066CC"
-            android:textStyle="bold"/>
 
     </LinearLayout>
 </ScrollView>
