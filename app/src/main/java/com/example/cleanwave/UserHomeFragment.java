@@ -34,7 +34,7 @@ public class UserHomeFragment extends Fragment {
         TextView btnNotification = view.findViewById(R.id.btnNotification);
         MaterialButton btnUserProfile = view.findViewById(R.id.btnUserProfile);
 
-        // Profile Route
+        // 1. Profile Route
         if (btnUserProfile != null) {
             btnUserProfile.setOnClickListener(v -> {
                 requireActivity().getSupportFragmentManager().beginTransaction()
@@ -44,7 +44,7 @@ public class UserHomeFragment extends Fragment {
             });
         }
 
-        // Notification Bell Route (This fixes your User Bell!)
+        // 2. Notification Bell Route
         if (btnNotification != null) {
             btnNotification.setOnClickListener(v -> {
                 requireActivity().getSupportFragmentManager().beginTransaction()
@@ -54,13 +54,17 @@ public class UserHomeFragment extends Fragment {
             });
         }
 
-        // Basic interactivity for the other buttons
+        // 3. Report Water Issue Route (The new feature!)
         if (btnReport != null) {
-            btnReport.setOnClickListener(v ->
-                    Toast.makeText(v.getContext(), "Navigating to Report Issue...", Toast.LENGTH_SHORT).show()
-            );
+            btnReport.setOnClickListener(v -> {
+                requireActivity().getSupportFragmentManager().beginTransaction()
+                        .replace(R.id.fragment_container, new ReportIssueFragment())
+                        .addToBackStack(null)
+                        .commit();
+            });
         }
 
+        // Placeholder interactivity for the remaining buttons
         if (btnVolunteer != null) {
             btnVolunteer.setOnClickListener(v ->
                     Toast.makeText(v.getContext(), "Opening Volunteer Events...", Toast.LENGTH_SHORT).show()
