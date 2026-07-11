@@ -54,7 +54,7 @@ public class UserHomeFragment extends Fragment {
             });
         }
 
-        // 3. Report Water Issue Route (The new feature!)
+        // 3. Report Water Issue Route
         if (btnReport != null) {
             btnReport.setOnClickListener(v -> {
                 requireActivity().getSupportFragmentManager().beginTransaction()
@@ -64,13 +64,17 @@ public class UserHomeFragment extends Fragment {
             });
         }
 
-        // Placeholder interactivity for the remaining buttons
+        // 4. Volunteer Events Route (The new feature!)
         if (btnVolunteer != null) {
-            btnVolunteer.setOnClickListener(v ->
-                    Toast.makeText(v.getContext(), "Opening Volunteer Events...", Toast.LENGTH_SHORT).show()
-            );
+            btnVolunteer.setOnClickListener(v -> {
+                requireActivity().getSupportFragmentManager().beginTransaction()
+                        .replace(R.id.fragment_container, new EventListFragment())
+                        .addToBackStack(null)
+                        .commit();
+            });
         }
 
+        // Placeholder interactivity for the remaining buttons
         if (btnDonation != null) {
             btnDonation.setOnClickListener(v ->
                     Toast.makeText(v.getContext(), "Opening Donations...", Toast.LENGTH_SHORT).show()
