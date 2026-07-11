@@ -64,7 +64,7 @@ public class UserHomeFragment extends Fragment {
             });
         }
 
-        // 4. Volunteer Events Route (The new feature!)
+        // 4. Volunteer Events Route
         if (btnVolunteer != null) {
             btnVolunteer.setOnClickListener(v -> {
                 requireActivity().getSupportFragmentManager().beginTransaction()
@@ -74,13 +74,17 @@ public class UserHomeFragment extends Fragment {
             });
         }
 
-        // Placeholder interactivity for the remaining buttons
+        // 5. Donation Programs Route (The new feature!)
         if (btnDonation != null) {
-            btnDonation.setOnClickListener(v ->
-                    Toast.makeText(v.getContext(), "Opening Donations...", Toast.LENGTH_SHORT).show()
-            );
+            btnDonation.setOnClickListener(v -> {
+                requireActivity().getSupportFragmentManager().beginTransaction()
+                        .replace(R.id.fragment_container, new DonationListFragment())
+                        .addToBackStack(null)
+                        .commit();
+            });
         }
 
+        // Placeholder interactivity for the final info button
         if (btnInfo != null) {
             btnInfo.setOnClickListener(v ->
                     Toast.makeText(v.getContext(), "Loading Information...", Toast.LENGTH_SHORT).show()
