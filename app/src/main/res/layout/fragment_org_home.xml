@@ -28,11 +28,11 @@
                 android:textStyle="bold"
                 android:textColor="#000000"/>
 
-            <!-- UPGRADED ORG BADGE (Not Clickable) -->
             <com.google.android.material.button.MaterialButton
                 style="@style/Widget.MaterialComponents.Button.OutlinedButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginEnd="12dp"
                 android:text="🏢 Org"
                 android:textColor="#000000"
                 app:cornerRadius="20dp"
@@ -40,6 +40,16 @@
                 android:clickable="false"
                 android:focusable="false"
                 app:rippleColor="@android:color/transparent" />
+
+            <!-- NEW BELL ICON ADDED HERE -->
+            <TextView
+                android:id="@+id/btnOrgBell"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="🔔"
+                android:textSize="24sp"
+                android:clickable="true"
+                android:focusable="true"/>
         </LinearLayout>
 
         <!-- 4 Grid Buttons -->

@@ -32,16 +32,24 @@ public class UserHomeFragment extends Fragment {
         MaterialButton btnDonation = view.findViewById(R.id.btnDonation);
         MaterialButton btnInfo = view.findViewById(R.id.btnInfo);
         TextView btnNotification = view.findViewById(R.id.btnNotification);
-
-        // This is the newly upgraded Profile button!
         MaterialButton btnUserProfile = view.findViewById(R.id.btnUserProfile);
 
+        // Profile Route
         if (btnUserProfile != null) {
             btnUserProfile.setOnClickListener(v -> {
-                // Navigate to the UserProfileFragment
                 requireActivity().getSupportFragmentManager().beginTransaction()
                         .replace(R.id.fragment_container, new UserProfileFragment())
-                        .addToBackStack(null) // This allows the "Back" arrow to work
+                        .addToBackStack(null)
+                        .commit();
+            });
+        }
+
+        // Notification Bell Route (This fixes your User Bell!)
+        if (btnNotification != null) {
+            btnNotification.setOnClickListener(v -> {
+                requireActivity().getSupportFragmentManager().beginTransaction()
+                        .replace(R.id.fragment_container, new UserNotificationFragment())
+                        .addToBackStack(null)
                         .commit();
             });
         }
@@ -68,12 +76,6 @@ public class UserHomeFragment extends Fragment {
         if (btnInfo != null) {
             btnInfo.setOnClickListener(v ->
                     Toast.makeText(v.getContext(), "Loading Information...", Toast.LENGTH_SHORT).show()
-            );
-        }
-
-        if (btnNotification != null) {
-            btnNotification.setOnClickListener(v ->
-                    Toast.makeText(v.getContext(), "Checking Notifications...", Toast.LENGTH_SHORT).show()
             );
         }
     }

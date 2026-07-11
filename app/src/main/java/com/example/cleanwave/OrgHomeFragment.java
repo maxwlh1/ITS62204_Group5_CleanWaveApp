@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -25,11 +26,12 @@ public class OrgHomeFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        // Map the specific NGO buttons
+        // Map all UI elements
         MaterialButton btnPublishEvent = view.findViewById(R.id.btnPublishEvent);
         MaterialButton btnLaunchDonation = view.findViewById(R.id.btnLaunchDonation);
         MaterialButton btnShareInfo = view.findViewById(R.id.btnShareInfo);
         MaterialButton btnOrgNotification = view.findViewById(R.id.btnOrgNotification);
+        TextView btnOrgBell = view.findViewById(R.id.btnOrgBell);
 
         // 1. Route for Publish Event
         if (btnPublishEvent != null) {
@@ -51,7 +53,7 @@ public class OrgHomeFragment extends Fragment {
             });
         }
 
-        // 3. Route for Share Info (This fixes your issue!)
+        // 3. Route for Share Info
         if (btnShareInfo != null) {
             btnShareInfo.setOnClickListener(v -> {
                 requireActivity().getSupportFragmentManager().beginTransaction()
@@ -61,11 +63,24 @@ public class OrgHomeFragment extends Fragment {
             });
         }
 
-        // 4. Placeholder for Notifications
+        // 4. Route for Notifications (The Grid Button)
         if (btnOrgNotification != null) {
-            btnOrgNotification.setOnClickListener(v ->
-                    Toast.makeText(v.getContext(), "Checking NGO Notifications...", Toast.LENGTH_SHORT).show()
-            );
+            btnOrgNotification.setOnClickListener(v -> {
+                requireActivity().getSupportFragmentManager().beginTransaction()
+                        .replace(R.id.fragment_container, new OrgNotificationFragment())
+                        .addToBackStack(null)
+                        .commit();
+            });
+        }
+
+        // 5. Route for Notifications (The Bell Icon in Header)
+        if (btnOrgBell != null) {
+            btnOrgBell.setOnClickListener(v -> {
+                requireActivity().getSupportFragmentManager().beginTransaction()
+                        .replace(R.id.fragment_container, new OrgNotificationFragment())
+                        .addToBackStack(null)
+                        .commit();
+            });
         }
     }
 }
