@@ -5,7 +5,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
@@ -74,7 +73,7 @@ public class UserHomeFragment extends Fragment {
             });
         }
 
-        // 5. Donation Programs Route (The new feature!)
+        // 5. Donation Programs Route
         if (btnDonation != null) {
             btnDonation.setOnClickListener(v -> {
                 requireActivity().getSupportFragmentManager().beginTransaction()
@@ -84,11 +83,14 @@ public class UserHomeFragment extends Fragment {
             });
         }
 
-        // Placeholder interactivity for the final info button
+        // 6. Info Hub Route (The final feature!)
         if (btnInfo != null) {
-            btnInfo.setOnClickListener(v ->
-                    Toast.makeText(v.getContext(), "Loading Information...", Toast.LENGTH_SHORT).show()
-            );
+            btnInfo.setOnClickListener(v -> {
+                requireActivity().getSupportFragmentManager().beginTransaction()
+                        .replace(R.id.fragment_container, new InfoListFragment())
+                        .addToBackStack(null)
+                        .commit();
+            });
         }
     }
 }
