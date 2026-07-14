@@ -47,6 +47,15 @@ public class UserHomeFragment extends Fragment {
             });
         }
 
+        if (btnInfo != null) {
+            btnInfo.setOnClickListener(v -> {
+                requireActivity().getSupportFragmentManager().beginTransaction()
+                        .replace(R.id.fragment_container, new InfoListFragment())
+                        .addToBackStack(null)
+                        .commit();
+            });
+        }
+
         // Notification Bell Route
         if (btnNotification != null) {
             btnNotification.setOnClickListener(v -> {

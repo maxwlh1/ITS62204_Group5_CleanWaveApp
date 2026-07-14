@@ -33,7 +33,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Event"
+                android:text="Events"
                 android:textSize="20sp"
                 android:textStyle="bold"
                 android:textColor="#000000"
@@ -42,38 +42,18 @@
             <View android:layout_width="40dp" android:layout_height="1dp"/>
         </LinearLayout>
 
-        <!-- Search and Filter Row -->
-        <LinearLayout
+        <!-- Search Bar -->
+        <EditText
+            android:id="@+id/etSearchEvent"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
+            android:layout_height="40dp"
             android:layout_marginBottom="24dp"
-            android:gravity="center_vertical">
-
-            <EditText
-                android:layout_width="0dp"
-                android:layout_height="40dp"
-                android:layout_weight="1"
-                android:background="@drawable/ic_launcher_background"
-                android:backgroundTint="#FFFFFF"
-                android:hint="🔍 Search"
-                android:paddingStart="12dp"
-                android:textSize="14sp"
-                android:inputType="text"
-                android:layout_marginEnd="12dp"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="40dp"
-                android:text="location ▼"
-                android:paddingStart="12dp"
-                android:paddingEnd="12dp"
-                android:gravity="center"
-                android:background="@drawable/ic_launcher_background"
-                android:backgroundTint="#FFFFFF"
-                android:textColor="#000000"
-                android:textSize="14sp"/>
-        </LinearLayout>
+            android:background="@drawable/ic_launcher_background"
+            android:backgroundTint="#FFFFFF"
+            android:hint="🔍 Search events..."
+            android:paddingStart="12dp"
+            android:textSize="14sp"
+            android:inputType="text"/>
 
         <!-- Event Card 1 -->
         <com.google.android.material.card.MaterialCardView
@@ -87,25 +67,21 @@
             app:cardElevation="0dp"
             android:clickable="true"
             android:focusable="true">
-
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
-
                 <ImageView
                     android:layout_width="match_parent"
                     android:layout_height="140dp"
                     android:scaleType="centerCrop"
                     android:src="@drawable/volunteer_pic1" />
-
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
                     android:padding="16dp"
                     android:background="#FDF9FA">
-
                     <TextView
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
@@ -113,7 +89,6 @@
                         android:text="Coastal Beach Cleanup"
                         android:textStyle="bold"
                         android:textColor="#333333"/>
-
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -136,25 +111,21 @@
             app:cardElevation="0dp"
             android:clickable="true"
             android:focusable="true">
-
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
-
                 <ImageView
                     android:layout_width="match_parent"
                     android:layout_height="140dp"
                     android:scaleType="centerCrop"
                     android:src="@drawable/volunteer_pic2" />
-
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
                     android:padding="16dp"
                     android:background="#FDF9FA">
-
                     <TextView
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
@@ -162,7 +133,6 @@
                         android:text="River Restoration Project"
                         android:textStyle="bold"
                         android:textColor="#333333"/>
-
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -185,25 +155,21 @@
             app:cardElevation="0dp"
             android:clickable="true"
             android:focusable="true">
-
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
-
                 <ImageView
                     android:layout_width="match_parent"
                     android:layout_height="140dp"
                     android:scaleType="centerCrop"
                     android:src="@drawable/volunteer_pic3" />
-
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
                     android:padding="16dp"
                     android:background="#FDF9FA">
-
                     <TextView
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
@@ -211,7 +177,6 @@
                         android:text="City Park Cleanup"
                         android:textStyle="bold"
                         android:textColor="#333333"/>
-
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
