@@ -33,7 +33,11 @@ public class UserHomeFragment extends Fragment {
         TextView btnNotification = view.findViewById(R.id.btnNotification);
         MaterialButton btnUserProfile = view.findViewById(R.id.btnUserProfile);
 
-        // 1. Profile Route
+        // Map the blue text links
+        TextView btnMoreEvents = view.findViewById(R.id.btnMoreEvents);
+        TextView btnMoreDonations = view.findViewById(R.id.btnMoreDonations);
+
+        // Profile Route
         if (btnUserProfile != null) {
             btnUserProfile.setOnClickListener(v -> {
                 requireActivity().getSupportFragmentManager().beginTransaction()
@@ -43,7 +47,7 @@ public class UserHomeFragment extends Fragment {
             });
         }
 
-        // 2. Notification Bell Route
+        // Notification Bell Route
         if (btnNotification != null) {
             btnNotification.setOnClickListener(v -> {
                 requireActivity().getSupportFragmentManager().beginTransaction()
@@ -53,7 +57,7 @@ public class UserHomeFragment extends Fragment {
             });
         }
 
-        // 3. Report Water Issue Route
+        // Report Water Issue Route
         if (btnReport != null) {
             btnReport.setOnClickListener(v -> {
                 requireActivity().getSupportFragmentManager().beginTransaction()
@@ -63,27 +67,31 @@ public class UserHomeFragment extends Fragment {
             });
         }
 
-        // 4. Volunteer Events Route
-        if (btnVolunteer != null) {
-            btnVolunteer.setOnClickListener(v -> {
-                requireActivity().getSupportFragmentManager().beginTransaction()
-                        .replace(R.id.fragment_container, new EventListFragment())
-                        .addToBackStack(null)
-                        .commit();
-            });
-        }
+        // --- THE EVENT ROUTES ---
+        // Both the Grid Button AND the Blue Text link to the Event List
+        View.OnClickListener goToEvents = v -> {
+            requireActivity().getSupportFragmentManager().beginTransaction()
+                    .replace(R.id.fragment_container, new EventListFragment())
+                    .addToBackStack(null)
+                    .commit();
+        };
+        if (btnVolunteer != null) btnVolunteer.setOnClickListener(goToEvents);
+        if (btnMoreEvents != null) btnMoreEvents.setOnClickListener(goToEvents);
 
-        // 5. Donation Programs Route
-        if (btnDonation != null) {
-            btnDonation.setOnClickListener(v -> {
-                requireActivity().getSupportFragmentManager().beginTransaction()
-                        .replace(R.id.fragment_container, new DonationListFragment())
-                        .addToBackStack(null)
-                        .commit();
-            });
-        }
 
-        // 6. Info Hub Route (The final feature!)
+        // --- THE DONATION ROUTES ---
+        // Both the Grid Button AND the Blue Text link to the Donation List
+        View.OnClickListener goToDonations = v -> {
+            requireActivity().getSupportFragmentManager().beginTransaction()
+                    .replace(R.id.fragment_container, new DonationListFragment())
+                    .addToBackStack(null)
+                    .commit();
+        };
+        if (btnDonation != null) btnDonation.setOnClickListener(goToDonations);
+        if (btnMoreDonations != null) btnMoreDonations.setOnClickListener(goToDonations);
+
+
+        // Info Hub Route
         if (btnInfo != null) {
             btnInfo.setOnClickListener(v -> {
                 requireActivity().getSupportFragmentManager().beginTransaction()
