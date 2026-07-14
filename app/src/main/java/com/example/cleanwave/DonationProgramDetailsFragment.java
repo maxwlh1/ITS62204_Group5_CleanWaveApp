@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -23,14 +24,32 @@ public class DonationProgramDetailsFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
+        // Map all elements
         TextView btnBackDonationDetails = view.findViewById(R.id.btnBackDonationDetails);
-        MaterialButton btnGoToPayment = view.findViewById(R.id.btnPayTNG);
+        MaterialButton btnGoToPayment = view.findViewById(R.id.btnGoToPayment);
 
+        TextView txtDonationDetailTitle = view.findViewById(R.id.txtDonationDetailTitle);
+        ImageView imgDonationDetailPhoto = view.findViewById(R.id.imgDonationDetailPhoto);
+        TextView txtDonationDetailDesc = view.findViewById(R.id.txtDonationDetailDesc);
+
+        // Check if we received specific donation data from the list
+        if (getArguments() != null) {
+            String title = getArguments().getString("DONATION_TITLE");
+            int imageResId = getArguments().getInt("DONATION_IMAGE");
+            String desc = getArguments().getString("DONATION_DESC");
+
+            // Update the screen dynamically!
+            if (txtDonationDetailTitle != null) txtDonationDetailTitle.setText(title);
+            if (imgDonationDetailPhoto != null) imgDonationDetailPhoto.setImageResource(imageResId);
+            if (txtDonationDetailDesc != null) txtDonationDetailDesc.setText(desc);
+        }
+
+        // Standard Back Button
         if (btnBackDonationDetails != null) {
             btnBackDonationDetails.setOnClickListener(v -> requireActivity().getSupportFragmentManager().popBackStack());
         }
 
-        // Clicking Donate goes to the Payment Screen
+        // Go to Payment Screen
         if (btnGoToPayment != null) {
             btnGoToPayment.setOnClickListener(v -> {
                 requireActivity().getSupportFragmentManager().beginTransaction()

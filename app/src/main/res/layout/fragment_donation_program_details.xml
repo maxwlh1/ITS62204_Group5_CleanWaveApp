@@ -25,6 +25,7 @@
             android:paddingEnd="16dp"/>
 
         <TextView
+            android:id="@+id/txtDonationDetailTitle"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -39,25 +40,27 @@
 
     <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#000000"/>
 
-    <!-- Photo Section -->
-    <TextView
+    <!-- Dynamic Photo Section -->
+    <ImageView
+        android:id="@+id/imgDonationDetailPhoto"
         android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:gravity="center"
-        android:text="Photos"
-        android:textColor="#000000"
-        android:background="#EAEAEA"/>
+        android:layout_height="250dp"
+        android:scaleType="centerCrop"
+        android:background="#EAEAEA"
+        android:src="@drawable/donation_pic1" />
 
     <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#000000"/>
 
-    <!-- Details Section -->
+    <!-- Dynamic Details Section -->
     <TextView
+        android:id="@+id/txtDonationDetailDesc"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:text="Donation Details"
-        android:textColor="#000000"
-        android:gravity="center"
+        android:text="Target: RM 0\nRaised: RM 0\n\nProgram Details..."
+        android:textColor="#333333"
+        android:textSize="16sp"
+        android:lineSpacingExtra="8dp"
         android:padding="24dp"/>
 
     <!-- Donate Button -->

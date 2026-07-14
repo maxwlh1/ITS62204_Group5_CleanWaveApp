@@ -25,6 +25,7 @@
             android:paddingEnd="16dp"/>
 
         <TextView
+            android:id="@+id/txtEventDetailTitle"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -39,25 +40,27 @@
 
     <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#000000"/>
 
-    <!-- Photo Section -->
-    <TextView
+    <!-- Dynamic Photo Section -->
+    <ImageView
+        android:id="@+id/imgEventDetailPhoto"
         android:layout_width="match_parent"
         android:layout_height="200dp"
-        android:gravity="center"
-        android:text="Photos"
-        android:textColor="#000000"
-        android:background="#EAEAEA"/>
+        android:scaleType="centerCrop"
+        android:background="#EAEAEA"
+        android:src="@drawable/volunteer_pic1" />
 
     <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#000000"/>
 
-    <!-- Details Section -->
+    <!-- Dynamic Details Section -->
     <TextView
+        android:id="@+id/txtEventDetailDesc"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:text="Event Details"
-        android:textColor="#000000"
-        android:gravity="center"
+        android:text="Location: TBA\nTime: TBA\n\nEvent Details..."
+        android:textColor="#333333"
+        android:textSize="16sp"
+        android:lineSpacingExtra="8dp"
         android:padding="24dp"/>
 
     <!-- Register Button -->
