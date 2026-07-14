@@ -134,17 +134,21 @@
 
             <!-- Filter Box -->
             <TextView
-                android:layout_width="120dp"
-                android:layout_height="60dp"
-                android:text="Event / Donation ▼"
+                android:id="@+id/tvFilterType"
+                android:layout_width="130dp"
+                android:layout_height="40dp"
+                android:text="All ▼"
                 android:textColor="#000000"
                 android:textSize="12sp"
                 android:gravity="center"
                 android:background="#EAEAEA"
-                android:layout_marginEnd="16dp"/>
+                android:layout_marginEnd="16dp"
+                android:clickable="true"
+                android:focusable="true"/>
 
             <!-- Search Bar -->
             <EditText
+                android:id="@+id/etSearchBox"
                 android:layout_width="0dp"
                 android:layout_height="40dp"
                 android:layout_weight="1"
@@ -173,7 +177,6 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
 
-                <!-- IMAGE VIEW FOR EVENT -->
                 <ImageView
                     android:id="@+id/imgOrgEventPhoto"
                     android:layout_width="match_parent"
@@ -226,7 +229,6 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
 
-                <!-- IMAGE VIEW FOR DONATION -->
                 <ImageView
                     android:id="@+id/imgOrgDonationPhoto"
                     android:layout_width="match_parent"
