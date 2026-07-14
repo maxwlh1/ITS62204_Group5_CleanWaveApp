@@ -32,12 +32,10 @@ public class DonationListFragment extends Fragment {
 
         // Clicking the first donation card opens the Details page
         if (cvDonationItem1 != null) {
-            cvDonationItem1.setOnClickListener(v -> {
-                requireActivity().getSupportFragmentManager().beginTransaction()
-                        .replace(R.id.fragment_container, new DonationProgramDetailsFragment())
-                        .addToBackStack(null)
-                        .commit();
-            });
+            cvDonationItem1.setOnClickListener(v -> requireActivity().getSupportFragmentManager().beginTransaction()
+                    .replace(R.id.fragment_container, new DonationProgramDetailsFragment())
+                    .addToBackStack(null)
+                    .commit());
         }
     }
 }
