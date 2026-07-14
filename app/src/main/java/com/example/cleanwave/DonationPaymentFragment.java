@@ -17,8 +17,7 @@ public class DonationPaymentFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View inflate = inflater.inflate(R.layout.fragment_donation_payment, container, false);
-        return inflate;
+        return inflater.inflate(R.layout.fragment_donation_payment, container, false);
     }
 
     @Override

@@ -10,6 +10,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import com.google.android.material.button.MaterialButton;
+import com.google.android.material.card.MaterialCardView;
 
 public class OrgHomeFragment extends Fragment {
 
@@ -26,12 +27,17 @@ public class OrgHomeFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        // Map all UI elements
+        // Map all UI elements from the new XML
         MaterialButton btnPublishEvent = view.findViewById(R.id.btnPublishEvent);
         MaterialButton btnLaunchDonation = view.findViewById(R.id.btnLaunchDonation);
         MaterialButton btnShareInfo = view.findViewById(R.id.btnShareInfo);
-        MaterialButton btnOrgNotification = view.findViewById(R.id.btnOrgNotification);
-        TextView btnOrgBell = view.findViewById(R.id.btnOrgBell);
+        MaterialButton btnOrgNotification = view.findViewById(R.id.btnOrgNotification); // Grid button
+
+        TextView btnOrgNotificationIcon = view.findViewById(R.id.btnOrgNotificationIcon); // Top right bell
+        MaterialButton btnOrgProfile = view.findViewById(R.id.btnOrgProfile); // Top right profile
+
+        MaterialCardView cvOrgEvent = view.findViewById(R.id.cvOrgEvent);
+        MaterialCardView cvOrgDonation = view.findViewById(R.id.cvOrgDonation);
 
         // 1. Route for Publish Event
         if (btnPublishEvent != null) {
@@ -63,7 +69,7 @@ public class OrgHomeFragment extends Fragment {
             });
         }
 
-        // 4. Route for Notifications (The Grid Button)
+        // 4. Route for Notifications (Grid Button)
         if (btnOrgNotification != null) {
             btnOrgNotification.setOnClickListener(v -> {
                 requireActivity().getSupportFragmentManager().beginTransaction()
@@ -73,14 +79,21 @@ public class OrgHomeFragment extends Fragment {
             });
         }
 
-        // 5. Route for Notifications (The Bell Icon in Header)
-        if (btnOrgBell != null) {
-            btnOrgBell.setOnClickListener(v -> {
+        // 5. Route for Bell Icon (Top Right)
+        if (btnOrgNotificationIcon != null) {
+            btnOrgNotificationIcon.setOnClickListener(v -> {
                 requireActivity().getSupportFragmentManager().beginTransaction()
                         .replace(R.id.fragment_container, new OrgNotificationFragment())
                         .addToBackStack(null)
                         .commit();
             });
+        }
+
+        // Placeholder for Profile
+        if (btnOrgProfile != null) {
+            btnOrgProfile.setOnClickListener(v ->
+                    Toast.makeText(v.getContext(), "Opening Organization Profile...", Toast.LENGTH_SHORT).show()
+            );
         }
     }
 }
